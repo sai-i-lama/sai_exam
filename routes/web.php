@@ -214,7 +214,7 @@ Route::post('/admin/moresettings/socialicons/insert','SocialController@store')->
   Route::delete('admin/ans/{id}','Anscontroller@destroy')->name('ans.del');
 
   Route::get('/admin/payment', 'PaymentController@index')->name('admin.payment');
-
+  Route::post('/payment', 'CinetPayController@initiatePayment')->name('payment.initiate');
 // route for processing payment
 
 

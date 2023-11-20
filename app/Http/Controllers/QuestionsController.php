@@ -50,12 +50,12 @@ class QuestionsController extends Controller
               }
               if(!empty($arr)){
                   \DB::table('questions')->insert($arr);
-                  return back()->with('added', 'Question Imported Successfully');
+                  return back()->with('added', 'Questions importée avec succès');
               }
-              return back()->with('deleted', 'Your excel file is empty or its headers are not matched to question table fields');
+              return back()->with('deleted', 'Vos fichiers Excel sont vides ou leurs en-tetes ne correspondent pas aux champs de la table de questions');
           }
       }
-        return back()->with('deleted', 'Request data does not have any files to import');
+        return back()->with('deleted', 'Les données de la demande n ont aucun fichier à importer');
     }
 
     /**
@@ -88,7 +88,7 @@ class QuestionsController extends Controller
         }
 
         Question::create($input);
-        return back()->with('added', 'Question has been added');
+        return back()->with('added', 'La question a été ajoutée');
     }
 
     /**
@@ -151,7 +151,7 @@ class QuestionsController extends Controller
         }
 
         $question->update($input);
-        return back()->with('updated', 'Question has been updated');
+        return back()->with('updated', 'La quesion a été supprimée');
     }
 
     /**
@@ -169,6 +169,6 @@ class QuestionsController extends Controller
         }
 
         $question->delete();
-        return back()->with('deleted', 'Question has been deleted');
+        return back()->with('deleted', 'La question a été supprimée');
     }
 }

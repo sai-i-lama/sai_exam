@@ -16,11 +16,11 @@
         <thead class="info">
           <tr>
             <th>#</th>
-            <th>Student Name</th>
+            <th>{{__('message.Student Name')}}</th>
             <th>Question</th>
-            <th>Student's Answer</th>
-            <th>Correct Answer</th>
-            <th>Delete</th>
+            <th>{{__('message.Student's Answer')}}</th>
+            <th>{{__('message.Correct Answer')}}</th>
+            <th>{{__('message.Delete')}}</th>
           </tr>
         </thead>
         <tbody>
@@ -48,8 +48,8 @@
                           <div class="delete-icon"></div>
                         </div>
                         <div class="modal-body text-center">
-                          <h4 class="modal-heading">Are You Sure ?</h4>
-                          <p>Do you really want to delete these records? This process cannot be undone.</p>
+                          <h4 class="modal-heading">{{__('message.Are You')}}</h4>
+                          <p>{{__('message.Do you')}}</p>
                         </div>
                         <div class="modal-footer">
                           {!! Form::open(['method' => 'DELETE', 'action' => ['AnswersController@destroy', $answer->id]]) !!}

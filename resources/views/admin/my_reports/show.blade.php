@@ -1,5 +1,5 @@
 @extends('layouts.admin', [
-  'page_header' => "My Report / {$topic->title}",
+  'page_header' => "Mes Rapports / {$topic->title}",
   'dash' => '',
   'users' => '',
   'questions' => '',
@@ -17,11 +17,11 @@
           <tr>
             <th>#</th>
             <th>Question</th>
-            <th>Correct Answer</th>
-            <th>My Answer</th>
-            <th>Answer Explanation</th>
-            <th>Marks</th>
-            <th>Total Marks</th>
+            <th>{{__('message.Correct Answer')}}</th>
+            <th>{{__('message.My Answer')}}</th>
+            <th>{{__('message.Answer Explanation')}}</th>
+            <th>{{__('message.Marks')}}</th>
+            <th>{{__('message.Total Marks')}}</th>
           </tr>
         </thead>
         <tbody>

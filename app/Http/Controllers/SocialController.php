@@ -61,7 +61,7 @@ class SocialController extends Controller
       }
 
       $social->save();
-      return back()->with('added', 'Icon have been added');
+      return back()->with('added', 'Icone ajoutée');
     }
 
     /**
@@ -112,7 +112,7 @@ class SocialController extends Controller
           unlink(public_path().'/images/socialicons/'.$si->icon);
         }
         $si->delete();
-        return back()->with('deleted', 'Icon has been deleted !');
+        return back()->with('deleted', 'Icone supprimé !');
     }
 
     public function active($id)
@@ -120,7 +120,7 @@ class SocialController extends Controller
         $s = SocialIcons::findOrFail($id);
         $s->status=1;
         $s->save();
-        return back()->with('updated', 'Icon status has been changed to Active !');
+        return back()->with('updated', 'Le status de l icone a été chabgé en actif !');
     }
 
     public function deactive($id)
@@ -128,6 +128,6 @@ class SocialController extends Controller
         $s = SocialIcons::findOrFail($id);
         $s->status=0;
         $s->save();
-        return back()->with('updated', 'Icon status has been changed to Deactive !');
+        return back()->with('updated', 'le status de l icone a été désactivé !');
     }
 }

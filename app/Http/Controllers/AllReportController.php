@@ -106,6 +106,6 @@ class AllReportController extends Controller
          $topicid.$userid;
          $answer = Answer::where('user_id',$userid)->where('topic_id',$topicid)->delete();
         
-        return back()->with('deleted','Response Reset Successfully !');
+        return back()->with('deleted','Réponse réinitialisée avec succès !');
     }
 }

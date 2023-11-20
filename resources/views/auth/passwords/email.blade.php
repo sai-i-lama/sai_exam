@@ -10,7 +10,7 @@
 @endsection
 @section('top_bar')
   <nav class="navbar navbar-default navbar-static-top">
-    <div class="logo-main-block">
+    <!--<div class="logo-main-block">
       <div class="container">
         @if ($setting)
           <a href="{{ url('/') }}" title="{{$setting->welcome_txt}}">
@@ -18,7 +18,7 @@
           </a>
         @endif
       </div>
-    </div>
+    </div>-->
     <div class="nav-bar">
       <div class="container">
         <div class="row">
@@ -37,9 +37,9 @@
                 <!-- Authentication Links -->
                 @guest
                   <li><a href="{{ route('login') }}" title="Login">Login</a></li>
-                  <li><a href="{{ route('register') }}" title="Register">Register</a></li>
-                  <li><a href="how-it-works">How it works</a></li>
-                  <li><a href="about-us">About us</a></li>
+                  <li><a href="{{ route('register') }}" title="Register">Registre</a></li>
+                  <li><a href="how-it-works">{{__('message.How it works')}}</a></li>
+                  <li><a href="about-us">{{__('message.About us')}}</a></li>
                 @else
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
@@ -47,9 +47,9 @@
                     </a>
                     <ul class="dropdown-menu">
                       @if ($auth->role == 'A')
-                        <li><a href="{{url('/admin')}}" title="Dashboard">Dashboard</a></li>
+                        <li><a href="{{url('/admin')}}" title="Dashboard">{{__('message.Dashboard')}}</a></li>
                       @elseif ($auth->role == 'S')
-                        <li><a href="{{url('/admin/my_reports')}}" title="Dashboard">Dashboard</a></li>
+                        <li><a href="{{url('/admin/my_reports')}}" title="Dashboard">{{__('message.Dashboard')}}</a></li>
                       @endif
                       <li>
                         <a href="{{ route('logout') }}"
@@ -63,8 +63,8 @@
                       </li>
                     </ul>
                   </li>
-                  <li><a href="how-it-works">How it works</a></li>
-                  <li><a href="about-us">About us</a></li>
+                  <li><a href="how-it-works">{{__('message.How it works')}}</a></li>
+                  <li><a href="about-us">{{__('message.About us')}}</a></li>
                   <li><a href="{{ route('faq.get') }}">FAQ</a></li>
                 @endguest
               </ul>
@@ -86,10 +86,10 @@
       <div class="login-page">
         <div class="logo">
           @if ($setting)
-            <a href="{{url('/')}}" title="{{$setting->welcome_txt}}"><img src="{{asset('/images/logo/'.$setting->logo)}}" class="login-logo img-responsive" alt="{{$setting->welcome_txt}}"></a>
+            <a href="{{url('/')}}" title="{{$setting->welcome_txt}}"><img src="{{asset('/images/logo/background.png')}}" class="login-logo img-responsive" alt="{{$setting->welcome_txt}}"></a>
           @endif
         </div>
-        <h4 class="user-register-heading text-center">Forget Password ?</h4>
+        <h4 class="user-register-heading text-center">{{__('message.Forgot Password?')}}</h4>
          @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
@@ -100,7 +100,7 @@
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <div class="row">
-                                 <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                                 <label for="email" class="col-md-4 control-label">E-mail</label>
 
                             <div class="col-md-8">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
@@ -118,7 +118,7 @@
                         <div class="form-group">
                             
                                 <button type="submit" class="btn btn-primary">
-                                    Send Password Reset Link
+                                    {{__('message.Send Password Reset Link')}}
                                 </button>
                         
                         </div>

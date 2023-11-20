@@ -69,7 +69,7 @@ class TopicController extends Controller
            
        // $input['show_ans'] = $request->show_ans;
         //return Topic::create($input);
-        return back()->with('added', 'Topic has been added');
+        return back()->with('added', 'Sujet ajouté');
     }
 
     /**
@@ -140,7 +140,7 @@ class TopicController extends Controller
 
           $topic->save();
 
-          return back()->with('updated','Topic updated !');
+          return back()->with('updated','Sujet mis à jour !');
     }
 
     /**
@@ -153,7 +153,7 @@ class TopicController extends Controller
     {
         $topic = Topic::findOrFail($id);
         $topic->delete();
-        return back()->with('deleted', 'Topic has been deleted');
+        return back()->with('deleted', 'Sujet supprimé');
     }
 
     public function deleteperquizsheet($id)
@@ -165,10 +165,10 @@ class TopicController extends Controller
           $value->delete();
         }
       
-        return back()->with('deleted','Answer Sheet Deleted For This Quiz !');
+        return back()->with('deleted','Feuille de réponse supprimée pour ce quiz !');
 
       }else{
-        return back()->with('added','No Answer Sheet Found For This Quiz !');
+        return back()->with('added','Aucune feuille de réponse trouvée pour ce quiz !');
       }
       
 

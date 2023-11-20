@@ -14,7 +14,7 @@
     <div class="box-body">
       <!-- Button trigger modal -->
       <div class="margin-bottom">
-      <a href="{{ route('faq.add') }}" class="btn btn-md btn-primary">+ Create FAQ</a>
+      <a href="{{ route('faq.add') }}" class="btn btn-md btn-primary">+ Creer un FAQ</a>
         
       </div>
 
@@ -22,7 +22,7 @@
         <thead>
           <tr>
             <th>SN</th>
-            <th>Title</th>
+            <th>Titre</th>
             <th>Details</th>
 
            

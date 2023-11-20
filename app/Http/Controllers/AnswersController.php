@@ -83,6 +83,6 @@ class AnswersController extends Controller
     {
         $answer = Answer::findOrFail($id);
         $answer->delete();
-        return back()->with('deleted', "Student's answer has been deleted");
+        return back()->with('deleted', "La réponse a été supprimée");
   }
 }

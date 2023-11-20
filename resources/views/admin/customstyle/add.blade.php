@@ -1,5 +1,5 @@
 @extends('layouts.admin', [
-  'page_header' => 'Custom Style Settings',
+  'page_header' => 'Paramètres de style personnalisés',
   'dash' => 'active',
   'quiz' => '',
   'users' => '',

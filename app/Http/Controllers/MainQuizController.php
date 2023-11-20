@@ -111,6 +111,6 @@ class MainQuizController extends Controller
     {
         $answer = Answer::findOrFail($id);
         $answer->delete();
-        return back()->with('deleted', 'Record has been deleted');
+        return back()->with('deleted', 'Enregistrement supprimé');
     }
 }

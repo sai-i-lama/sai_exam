@@ -120,7 +120,7 @@ class SettingController extends Controller
         }
 
         $setting->update($input);
-        return back()->with('updated', 'Settings have been saved !');
+        return back()->with('updated', 'Les paramètres ont été mis à jour !');
 
     }
 

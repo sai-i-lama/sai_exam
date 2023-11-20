@@ -102,7 +102,7 @@ class PaypalController extends Controller
             /** exit; **/
         } else { 
           flash('Some error occur, sorry for inconvenience')->error()->important();
-            return back()->with('deleted', 'Some error occur, sorry for inconvenient');
+            return back()->with('deleted', 'Une erreur est survenue, désolé pour la gène occasionnée');
             /** die('Some error occur, sorry for inconvenient'); **/
         }
     }

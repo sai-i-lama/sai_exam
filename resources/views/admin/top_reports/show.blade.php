@@ -1,5 +1,5 @@
 @extends('layouts.admin', [
-  'page_header' => "Top Students / {$topic->title}",
+  'page_header' => "Top des utilisateurs / {$topic->title}",
   'dash' => '',
   'quiz' => '',
   'users' => '',
@@ -16,11 +16,11 @@
         <thead>
           <tr>
             <th>#</th>
-            <th>Student Name</th>
-            <th>Mobile No.</th>          
+            <th>{{__('message.Student Name')}}</th>
+            <th>{{__('message.Mobile No.')}}</th>          
             <th>Quiz</th>
-            <th>Marks Got</th>
-            <th>Total Marks</th>
+            <th>{{__('message.Marks Got')}}</th>
+            <th>{{__('message.Total Marks')}}</th>
           </tr>
         </thead>
         <tbody>

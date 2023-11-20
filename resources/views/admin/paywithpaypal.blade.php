@@ -1,5 +1,5 @@
 @extends('layouts.admin', [
-  'page_header' => 'Dashboard',
+  'page_header' => 'Tableau de bord',
   'dash' => 'active',
   'quiz' => '',
   'users' => '',
@@ -29,13 +29,13 @@
                 </div>
                 <?php Session::forget('error');?>
                 @endif
-                <div class="panel-heading">Paywith Paypal</div>
+                <div class="panel-heading">Payer avec PayPal</div>
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" id="payment-form" role="form" action="{!! URL::route('addmoney.paypal') !!}" >
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('amount') ? ' has-error' : '' }}">
-                            <label for="amount" class="col-md-4 control-label">Amount</label>
+                            <label for="amount" class="col-md-4 control-label">Montant</label>
 
                             <div class="col-md-6">
                                 <input id="amount" type="text" class="form-control" name="amount" value="{{ old('amount') }}" autofocus>
@@ -51,7 +51,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Paywith Paypal
+                                    Payer avec PayPal
                                 </button>
                             </div>
                         </div>

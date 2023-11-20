@@ -1,5 +1,5 @@
 @extends('layouts.admin', [
-  'page_header' => "Top Students / {$topic->title}",
+  'page_header' => "Top Utilisateurs / {$topic->title}",
   'dash' => '',
   'quiz' => '',
   'users' => '',
@@ -16,11 +16,11 @@
         <thead>
           <tr>
             <th>#</th>
-            <th>Student Name</th>
-            <th>Mobile No.</th>            
-            <th>Topic</th>
-            <th>Marks Got</th>
-            <th>Total Marks</th>
+            <th>{{__('message.Student Name')}}</th>
+            <th>{{__('message.Mobile No.')}}</th>            
+            <th>{{__('message.Topic')}}</th>
+            <th>{{__('message.Marks Got')}}</th>
+            <th>{{__('message.Total Marks')}}</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -55,8 +55,8 @@
                   {{$c_que*$topic->per_q_mark}}
                 </td>
                 <td>
-                  <a data-toggle="modal" data-target="#delete{{ $topic->id }}" title="It will delete the answer sheet of this student" href="#" class="btn btn-sm btn-warning">
-                    Reset Response
+                  <a data-toggle="modal" data-target="#delete{{ $topic->id }}" title="Cela supprimera la feuille de réponses de cet utilisateur" href="#" class="btn btn-sm btn-warning">
+                    réinitialiser la réponse
                   </a>
 
                   <div id="delete{{ $topic->id }}" class="delete-modal modal fade" role="dialog">
@@ -68,8 +68,8 @@
                             <div class="delete-icon"></div>
                           </div>
                           <div class="modal-body text-center">
-                            <h4 class="modal-heading">Are You Sure ?</h4>
-                            <p>Do you really want to delete these record? This process cannot be undone.</p>
+                            <h4 class="modal-heading">Etes-vous sûr?</h4>
+                            <p>Voulez-vous vraiment supprimer ces enregistrements ? Ce processus ne peut pas être annulé.</p>
                           </div>
                           <div class="modal-footer">
                             {!! Form::open(['method' => 'DELETE', 'action' => ['AllReportController@delete', 'topicid' => $topic->id, 'userid' => $student->id] ]) !!}

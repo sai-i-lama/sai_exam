@@ -11,8 +11,8 @@
 
 @section('content')
   <div class="margin-bottom">
-    <button type="button" class="btn btn-wave" data-toggle="modal" data-target="#createModal">Add Question</button>
-    <button type="button" class="btn btn-wave" data-toggle="modal" data-target="#importQuestions">Import Questions</button>
+    <button type="button" class="btn btn-wave" data-toggle="modal" data-target="#createModal">{{__('message.Add Question')}}</button>
+    <button type="button" class="btn btn-wave" data-toggle="modal" data-target="#importQuestions">{{__('message.Import Questions')}}</button>
   </div>
   <!-- Create Modal -->
   <div id="createModal" class="modal fade" role="dialog">
@@ -20,7 +20,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Add Question</h4>
+          <h4 class="modal-title">{{__('message.Add Question')}}</h4>
         </div>
         {!! Form::open(['method' => 'POST', 'action' => 'QuestionsController@store', 'files' => true]) !!}
           <div class="modal-body">
@@ -30,7 +30,7 @@
                 <div class="form-group{{ $errors->has('question') ? ' has-error' : '' }}">                  
                   {!! Form::label('question', 'Question') !!}
                   <span class="required">*</span>
-                  {!! Form::textarea('question', null, ['class' => 'form-control', 'placeholder' => 'Please Enter Question', 'rows'=>'8', 'required' => 'required']) !!}
+                  {!! Form::textarea('question', null, ['class' => 'form-control', 'placeholder' => 'Entrez la question', 'rows'=>'8', 'required' => 'required']) !!}
                   <small class="text-danger">{{ $errors->first('question') }}</small>
                 </div>
                 <div class="form-group{{ $errors->has('answer') ? ' has-error' : '' }}">
@@ -44,25 +44,25 @@
                 <div class="form-group{{ $errors->has('a') ? ' has-error' : '' }}">
                   {!! Form::label('a', 'A - Option') !!}
                   <span class="required">*</span>
-                  {!! Form::text('a', null, ['class' => 'form-control', 'placeholder' => 'Please Enter A Option', 'required' => 'required']) !!}
+                  {!! Form::text('a', null, ['class' => 'form-control', 'placeholder' => 'Entrez option A', 'required' => 'required']) !!}
                   <small class="text-danger">{{ $errors->first('a') }}</small>
                 </div>
                 <div class="form-group{{ $errors->has('b') ? ' has-error' : '' }}">
                   {!! Form::label('b', 'B - Option') !!}
                   <span class="required">*</span>
-                  {!! Form::text('b', null, ['class' => 'form-control', 'placeholder' => 'Please Enter B Option', 'required' => 'required']) !!}
+                  {!! Form::text('b', null, ['class' => 'form-control', 'placeholder' => 'Entrez option B', 'required' => 'required']) !!}
                   <small class="text-danger">{{ $errors->first('b') }}</small>
                 </div>
                 <div class="form-group{{ $errors->has('c') ? ' has-error' : '' }}">
                   {!! Form::label('c', 'C - Option') !!}
                   <span class="required">*</span>
-                  {!! Form::text('c', null, ['class' => 'form-control', 'placeholder' => 'Please Enter C Option', 'required' => 'required']) !!}
+                  {!! Form::text('c', null, ['class' => 'form-control', 'placeholder' => 'Entrez option C', 'required' => 'required']) !!}
                   <small class="text-danger">{{ $errors->first('c') }}</small>
                 </div>
                 <div class="form-group{{ $errors->has('d') ? ' has-error' : '' }}">
                   {!! Form::label('d', 'D - Option') !!}
                   <span class="required">*</span>
-                  {!! Form::text('d', null, ['class' => 'form-control', 'placeholder' => 'Please Enter D Option', 'required' => 'required']) !!}
+                  {!! Form::text('d', null, ['class' => 'form-control', 'placeholder' => 'Entrez option D', 'required' => 'required']) !!}
                   <small class="text-danger">{{ $errors->first('d') }}</small>
                 </div>
               </div>
@@ -80,22 +80,22 @@
               </div>
               <div class="col-md-12">
                 <div class="extras-block">
-                  <h4 class="extras-heading">Video And Image For Question</h4>
+                  <h4 class="extras-heading">{{__('message.Video And Image For Question')}}</h4>
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group{{ $errors->has('question_video_link') ? ' has-error' : '' }}">
-                        {!! Form::label('question_video_link', 'Add Video To Question') !!}
+                        {!! Form::label('question_video_link', 'Ajouter une video a la question') !!}
                         {!! Form::text('question_video_link', null, ['class' => 'form-control', 'placeholder'=>'https://myvideolink.com/embed/..']) !!}
                         <small class="text-danger">{{ $errors->first('question_video_link') }}</small>
-                        <p class="help">YouTube And Vimeo Video Support (Only Embed Code Link)</p>
+                        <p class="help">Prise en charge des vidéos YouTube et Vimeo (uniquement lien de code intégré)</p>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group{{ $errors->has('question_img') ? ' has-error' : '' }}">
-                        {!! Form::label('question_img', 'Add Image To Question') !!}
+                        {!! Form::label('question_img', 'Ajouter une image a la question') !!}
                         {!! Form::file('question_img') !!}
                         <small class="text-danger">{{ $errors->first('question_img') }}</small>
-                         <p class="help">Please Choose Only .JPG, .JPEG and .PNG</p>
+                         <p class="help">Veuillez choisir uniquement .JPG, .JPEG et .PNG</p>
                       </div>
                     </div>
                   </div>
@@ -119,7 +119,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Import Questions (Excel File With Exact Header of DataBase Field)</h4>
+          <h4 class="modal-title">Questions d''importation (fichier Excel avec en-tête exact du champ de la base de données)</h4>
         </div>
         {!! Form::open(['method' => 'POST', 'action' => 'QuestionsController@importExcelToDB', 'files' => true]) !!}
           <div class="modal-body">
@@ -155,10 +155,10 @@
             <th>B - Option</th>
             <th>C - Option</th>
             <th>D - Option</th>
-            <th>Correct Answer</th>
-            <th>Code Snippet</th>
-            <th>Answer Explanation</th>
-            <th>Image</th>
+            <th>{{__('message.Correct Answer')}}</th>
+            <th>{{__('message.Code Snippet')}}</th>
+            <th>{{__('message.Answer Explanation')}}</th>
+            <th>Images</th>
             <th>Video Link</th>
             <th>Actions</th>
           </tr>
@@ -195,9 +195,9 @@
                 </td>
                 <td>
                   <!-- Edit Button -->
-                  <a type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#{{$question->id}}EditModal"><i class="fa fa-edit"></i> Edit</a>
+                  <a type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#{{$question->id}}EditModal"><i class="fa fa-edit"></i> Editer</a>
                   <!-- Delete Button -->
-                  <a type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#{{$question->id}}deleteModal"><i class="fa fa-close"></i> Delete</a>
+                  <a type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#{{$question->id}}deleteModal"><i class="fa fa-close"></i> {{__('message.Delete')}}</a>
                   <div id="{{$question->id}}deleteModal" class="delete-modal modal fade" role="dialog">
                     <!-- Delete Modal -->
                     <div class="modal-dialog modal-sm">
@@ -207,8 +207,8 @@
                           <div class="delete-icon"></div>
                         </div>
                         <div class="modal-body text-center">
-                          <h4 class="modal-heading">Are You Sure ?</h4>
-                          <p>Do you really want to delete these records? This process cannot be undone.</p>
+                          <h4 class="modal-heading">Etes-vous sûr?</h4>
+                          <p>Voulez-vous vraiment supprimer ces enregistrements ? Ce processus ne peut pas être annulé.</p>
                         </div>
                         <div class="modal-footer">
                           {!! Form::open(['method' => 'DELETE', 'action' => ['QuestionsController@destroy', $question->id]]) !!}
@@ -227,7 +227,7 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <h4 class="modal-title">Edit Question</h4>
+                      <h4 class="modal-title">Editer les Questions</h4>
                     </div>
                     {!! Form::model($question, ['method' => 'PATCH', 'action' => ['QuestionsController@update', $question->id], 'files' => true]) !!}
                       <div class="modal-body">
@@ -237,7 +237,7 @@
                             <div class="form-group{{ $errors->has('question') ? ' has-error' : '' }}">
                               {!! Form::label('question', 'Question') !!}
                               <span class="required">*</span>
-                              {!! Form::textarea('question', null, ['class' => 'form-control', 'placeholder' => 'Please Enter Question', 'rows'=>'8', 'required' => 'required']) !!}
+                              {!! Form::textarea('question', null, ['class' => 'form-control', 'placeholder' => 'Entrez la Question', 'rows'=>'8', 'required' => 'required']) !!}
                               <small class="text-danger">{{ $errors->first('question') }}</small>
                             </div>
                             <div class="form-group{{ $errors->has('answer') ? ' has-error' : '' }}">
@@ -287,14 +287,14 @@
                           </div>
                           <div class="col-md-12">
                             <div class="extras-block">
-                              <h4 class="extras-heading">Images And Video For Question</h4>
+                              <h4 class="extras-heading">Images et videos pour les questions</h4>
                               <div class="row">
                                 <div class="col-md-6">
                                   <div class="form-group{{ $errors->has('question_video_link') ? ' has-error' : '' }}">
                                     {!! Form::label('question_video_link', 'Add Video To Question') !!}
                                     {!! Form::text('question_video_link', null, ['class' => 'form-control', 'placeholder'=>'https://myvideolink.com/embed/..']) !!}
                                     <small class="text-danger">{{ $errors->first('question_video_link') }}</small>
-                                    <p class="help">YouTube And Vimeo Video Support (Only Embed Code Link)</p>
+                                    <p class="help">Prise en charge des vidéos YouTube et Vimeo (uniquement lien de code intégré)</p>
                                   </div>
                                 </div>
                                 <div class="col-md-6">
@@ -302,7 +302,7 @@
                                     {!! Form::label('question_img', 'Add Image In Question') !!}
                                     {!! Form::file('question_img') !!}
                                     <small class="text-danger">{{ $errors->first('question_img') }}</small>
-                                    <p class="help">Please Choose Only .JPG, .JPEG and .PNG</p>
+                                    <p class="help">Veuillez choisir uniquement .JPG, .JPEG et .PNG</p>
                                   </div>
                                 </div>
                               </div>

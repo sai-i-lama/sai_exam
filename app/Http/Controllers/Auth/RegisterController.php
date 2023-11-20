@@ -58,12 +58,12 @@ class RegisterController extends Controller
             'password' => 'required|string|min:6|confirmed',
         ],
 
-       [     'name.required' => 'Name cannot be empty',
-                   'email.required' => 'Email field is required',
-                   'email.unique' => 'Email has been already taken !',
-                   'password.required' => 'Password cannot be empty',
-                   'password.min' => 'Min Password length must be 6',
-                   'password.confirmed' => "Password doesn't match",]
+       [     'name.required' => 'Inscrire un nom',
+                   'email.required' => 'Le champ email est obligatoire',
+                   'email.unique' => 'Email déja pris !',
+                   'password.required' => 'Inscrire le mot de passe',
+                   'password.min' => '6 caractères minimum pour le mot de passe',
+                   'password.confirmed' => "Le mot de passe ne correspond pas",]
             );
     }
 
@@ -81,8 +81,9 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             'role' => 'S',
         ]);
+    
+        //Mail::to($data['email'])->send(new WelcomeUser($user));
 
-        Mail::to($data['email'])->send(new WelcomeUser($user));
         return $user;
     }
 }

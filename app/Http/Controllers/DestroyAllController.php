@@ -12,12 +12,12 @@ class DestroyAllController extends Controller
     {
       User::where('role', '!=', 'A')->getQuery()->delete();
       // User::where('role', '!=', 'A')->truncate();
-      return back()->with('deleted', 'All Student Has Been Deleted');
+      return back()->with('deleted', 'Tous les utilisateurs ont été supprimés');
     }
 
     public function AllAnswersDestroy() {
       Answer::truncate();
-      return back()->with('deleted', 'All Answer Sheets Has Been Deleted');
+      return back()->with('deleted', 'Toutes les feuilles de reponses ont été supprimés');
     }
 
 }

@@ -59,7 +59,7 @@ class UsersController extends Controller
           'role' => $input['role'],
         ]);
 
-        return back()->with('added', 'User has been added');
+        return back()->with('added', 'Utilisateur ajouté');
     }
 
     /**
@@ -134,7 +134,7 @@ class UsersController extends Controller
           ]);
         }
 
-        return back()->with('updated', 'Student has been updated');
+        return back()->with('updated', 'Utilisateur mis à jour');
     }
 
     /**
@@ -147,7 +147,7 @@ class UsersController extends Controller
     {
         $user = User::findOrFail($id);
         $user->delete();
-        return back()->with('deleted', 'User has been deleted');
+        return back()->with('deleted', 'Utilisateur supprimé');
     }
 
 }

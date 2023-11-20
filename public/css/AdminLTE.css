@@ -2245,7 +2245,7 @@ button.btn-wave {
   border: none;
   text-decoration: none;
   color: #fff;
-  background-color: #26a69a;
+  background-color: #8b008b;
   text-align: center;
   letter-spacing: .5px;
   -webkit-transition: .2s ease-out;
@@ -2256,7 +2256,7 @@ button.btn-wave {
 .btn-wave:active,
 .btn-wave:focus,
 .btn-wave.hover {
-  background-color: #2bbbad;
+  background-color: #cc006a;
   color: #FFF !important;
   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
   outline: none !important;
@@ -2271,13 +2271,13 @@ button.btn-wave {
   background-color: #008d4c;
 }
 .btn-info {
-  background-color: #26a69a !important;
+  background-color: #00acd6 !important;
   border-color: #00acd6;
 }
 .btn-info:hover,
 .btn-info:active,
 .btn-info.hover {
-  background-color: #00acd6;
+  background-color: #cc006a;
 }
 .btn-danger {
   background-color: #dd4b39;
@@ -5132,7 +5132,8 @@ table.text-center th {
   color: #26a69a;
 }
 .ad-logo {
-  margin: 0 auto;
+  margin: 0 10px;
+
 }
 .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
   background-color: #26a69a !important;
@@ -5177,14 +5178,14 @@ table.text-center th {
 
 /*========= Skin Css =======*/
 .skin-black .main-sidebar {
-  background-color: #1a2226 !important;
+  background-color: #8b008b !important;
 }
 .skin-black .sidebar-menu > li.active > a {
   border: none;
 }
 .skin-black .sidebar-menu > li:hover > a,
 .skin-black .sidebar-menu > li.active > a {
-  background-color: rgba(38, 166, 154, 0.5) !important;
+  background-color: #1d4851 !important;
 }
 body.sidebar-collapse.skin-black .sidebar-menu > li:hover > a,
 body.sidebar-collapse.skin-black .sidebar-menu > li.active > a {

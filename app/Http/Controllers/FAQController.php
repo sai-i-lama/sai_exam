@@ -48,7 +48,7 @@ class FAQController extends Controller
 
         $newfaq->save();
 
-        return redirect()->route('faq.index')->with('added','FAQ Added');
+        return redirect()->route('faq.index')->with('added','FAQ Ajouté');
     }
 
     /**
@@ -88,7 +88,7 @@ class FAQController extends Controller
         $faq->details = $request->details;
         $faq->save();
 
-        return redirect()->route('faq.index')->with('updated','FAQ is updated !');
+        return redirect()->route('faq.index')->with('updated','FAQ mis à jour !');
     }
 
     /**
@@ -101,6 +101,6 @@ class FAQController extends Controller
     {
         $faq = FAQ::findOrFail($id);
       $faq->delete();
-      return redirect()->route('faq.index')->with('deleted','FAQ has been deleted');
+      return redirect()->route('faq.index')->with('deleted','FAQ supprimé');
     }
 }

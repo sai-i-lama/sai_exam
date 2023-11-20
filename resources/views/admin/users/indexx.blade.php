@@ -1,5 +1,5 @@
 @extends('layouts.admin', [
-  'page_header' => 'Students',
+  'page_header' => 'Utilisateurs',
   'dash' => '',
   'quiz' => '',
   'users' => 'active',
@@ -13,8 +13,8 @@
 @include('message')
   @if ($auth->role == 'A')
     <div class="margin-bottom">
-      <button type="button" class="btn btn-wave" data-toggle="modal" data-target="#createModal">Add Student</button>
-      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#AllDeleteModal">Delete All Students</button>
+      <button type="button" class="btn btn-wave" data-toggle="modal" data-target="#createModal">{{__('message.Add Student')}}</button>
+      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#AllDeleteModal">{{__('message.Delete All Student')}}s</button>
     </div>
     <!-- All Delete Button -->
     <div id="AllDeleteModal" class="delete-modal modal fade" role="dialog">
@@ -26,8 +26,8 @@
             <div class="delete-icon"></div>
           </div>
           <div class="modal-body text-center">
-            <h4 class="modal-heading">Are You Sure ?</h4>
-            <p>Do you really want to delete "All these records"? This process cannot be undone.</p>
+            <h4 class="modal-heading">{{__('message.Are you')}}</h4>
+            <p>{{__('message.Do you')}}</p>
           </div>
           <div class="modal-footer">
             {!! Form::open(['method' => 'POST', 'action' => 'DestroyAllController@AllUsersDestroy']) !!}
@@ -44,7 +44,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Add Student</h4>
+            <h4 class="modal-title">{{__('message.Add Student')}}</h4>
           </div>
           {!! Form::open(['method' => 'POST', 'action' => 'UsersController@store']) !!}
             <div class="modal-body">
@@ -53,7 +53,7 @@
                   <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                     {!! Form::label('name', 'Student Name') !!}
                     <span class="required">*</span>
-                    {!! Form::text('name', null, ['class' => 'form-control', 'required' => 'required', 'placeholder' => 'Enter Your Name']) !!}
+                    {!! Form::text('name', null, ['class' => 'form-control', 'required' => 'required', 'placeholder' => 'Entrez votre nom']) !!}
                     <small class="text-danger">{{ $errors->first('name') }}</small>
                   </div>
                   <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -65,7 +65,7 @@
                   <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                     {!! Form::label('password', 'Password') !!}
                     <span class="required">*</span>
-                    {!! Form::password('password', ['class' => 'form-control', 'placeholder'=>'Enter Your Password', 'required' => 'required']) !!}
+                    {!! Form::password('password', ['class' => 'form-control', 'placeholder'=>'Entrez votre mot de passe', 'required' => 'required']) !!}
                     <small class="text-danger">{{ $errors->first('password') }}</small>
                   </div>
                   <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
@@ -111,12 +111,13 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Student Name</th>
+              <th>{{__('message.Student Name')}}</th>
+              <th>Prénom</th>
               <th>Email</th>
-              <th>Mobile No.</th>
-              <th>City</th>
-              <th>Address</th>
-              <th>User Role</th>
+              <th>{{__('message.Mobile No.')}}</th>
+              
+              <th>Addresse</th>
+              <th>Role d''utilisateur</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -130,16 +131,17 @@
                     @php($n++)
                   </td>
                   <td>{{$user->name}}</td>
+                  <td>{{$user->city}}</td>
                   <td>{{$user->email}}</td>
                   <td>{{$user->mobile}}</td>
-                  <td>{{$user->city}}</td>
+                  
                   <td>{{$user->address}}</td>
                   <td>{{$user->role == 'S' ? 'Student' : '-'}}</td>
                   <td>
                     <!-- Edit Button -->
-                    <a type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#{{$user->id}}EditModal"><i class="fa fa-edit"></i> Edit</a>
+                    <a type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#{{$user->id}}EditModal"><i class="fa fa-edit"></i> Editer</a>
                     <!-- Delete Button -->
-                    <a type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#{{$user->id}}deleteModal"><i class="fa fa-close"></i> Delete</a>
+                    <a type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#{{$user->id}}deleteModal"><i class="fa fa-close"></i> Supprimer</a>
                     <div id="{{$user->id}}deleteModal" class="delete-modal modal fade" role="dialog">
                       <!-- Delete Modal -->
                       <div class="modal-dialog modal-sm">
@@ -149,13 +151,13 @@
                             <div class="delete-icon"></div>
                           </div>
                           <div class="modal-body text-center">
-                            <h4 class="modal-heading">Are You Sure ?</h4>
-                            <p>Do you really want to delete these records? This process cannot be undone.</p>
+                            <h4 class="modal-heading">{{__('message.Are you')}}</h4>
+                            <p>{{__('message.Do you')}}</p>
                           </div>
                           <div class="modal-footer">
                             {!! Form::open(['method' => 'DELETE', 'action' => ['UsersController@destroy', $user->id]]) !!}
-                                {!! Form::reset("No", ['class' => 'btn btn-gray', 'data-dismiss' => 'modal']) !!}
-                                {!! Form::submit("Yes", ['class' => 'btn btn-danger']) !!}
+                                {!! Form::reset("Non", ['class' => 'btn btn-gray', 'data-dismiss' => 'modal']) !!}
+                                {!! Form::submit("Oui", ['class' => 'btn btn-danger']) !!}
                             {!! Form::close() !!}
                           </div>
                         </div>
@@ -178,7 +180,7 @@
                               <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                 {!! Form::label('name', 'Name') !!}
                                 <span class="required">*</span>
-                                {!! Form::text('name', null, ['class' => 'form-control', 'required' => 'required', 'placeholder' => 'Enter your name']) !!}
+                                {!! Form::text('name', null, ['class' => 'form-control', 'required' => 'required', 'placeholder' => 'Entrez votre nom']) !!}
                                 <small class="text-danger">{{ $errors->first('name') }}</small>
                               </div>
                               <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -216,12 +218,12 @@
                               </div>
                               <div class="form-group{{ $errors->has('city') ? ' has-error' : '' }}">
                                 {!! Form::label('city', 'Enter City') !!}
-                                {!! Form::text('city', null, ['class' => 'form-control', 'placeholder'=>'Enter Your City']) !!}
+                                {!! Form::text('city', null, ['class' => 'form-control', 'placeholder'=>'Entrez votre ville']) !!}
                                 <small class="text-danger">{{ $errors->first('city') }}</small>
                               </div>
                               <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
                                 {!! Form::label('address', 'Address') !!}
-                                {!! Form::textarea('address', null, ['class' => 'form-control', 'rows'=>'5', 'placeholder' => 'Enter Your Address']) !!}
+                                {!! Form::textarea('address', null, ['class' => 'form-control', 'rows'=>'5', 'placeholder' => 'Entrez votre Addresse']) !!}
                                 <small class="text-danger">{{ $errors->first('address') }}</small>
                               </div>
                               
@@ -230,7 +232,7 @@
                         </div>
                         <div class="modal-footer">
                           <div class="btn-group pull-right">
-                            {!! Form::submit("Update", ['class' => 'btn btn-wave']) !!}
+                            {!! Form::submit("Mettre à jour", ['class' => 'btn btn-wave']) !!}
                           </div>
                         </div>
                       {!! Form::close() !!}

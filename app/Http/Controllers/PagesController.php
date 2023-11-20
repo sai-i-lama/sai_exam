@@ -39,7 +39,7 @@ class PagesController extends Controller
 
       $newpage->save();
 
-      return redirect()->route('pages.index')->with('added', 'Page is created !');
+      return redirect()->route('pages.index')->with('added', 'Page crée !');
 
     }
 
@@ -74,13 +74,13 @@ class PagesController extends Controller
 
         $page->save();
 
-        return redirect()->route('pages.index')->with('updated','Page is updated !');
+        return redirect()->route('pages.index')->with('updated','Page mis à jour !');
     }
 
     public function destroy($id)
     {
       $page = Page::findOrFail($id);
       $page->delete();
-      return redirect()->route('pages.index')->with('deleted','Page has been deleted');
+      return redirect()->route('pages.index')->with('deleted','Page supprimée');
     }
 }

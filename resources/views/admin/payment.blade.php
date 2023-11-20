@@ -1,5 +1,5 @@
 @extends('layouts.admin', [
-  'page_header' => 'Payment History',
+  'page_header' => 'Historique de paiement',
   'dash' => '',
   'quiz' => '',
   'users' => '',
@@ -17,10 +17,10 @@
         <thead>
           <tr>
             <th>#</th>
-            <th>Student Name</th>
-            <th>Topic</th>
-            <th>Amount</th>
-            <th>Payment ID</th>
+            <th>{{__('message.Student Name')}}</th>
+            <th>{{__('message.Topic')}}</th>
+            <th>{{__('message.Amount')}}</th>
+            <th>{{__('message.Payment ID')}}</th>
             <th>Status</th>
             <th>Date</th>
           </tr>

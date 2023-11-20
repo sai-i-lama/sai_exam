@@ -46,7 +46,7 @@ $setting = App\Setting::first();
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg">
         @if ($setting)
-        <img src="{{asset('/images/logo/'.$setting->logo)}}" class="ad-logo img-responsive" alt="{{$setting->welcome_txt}}">
+        <img src="{{asset('/images/logo/background.png')}}" class="ad-logo img-responsive" alt="{{$setting->welcome_txt}}">
         @endif
       </span>
     </a>
@@ -70,7 +70,7 @@ $setting = App\Setting::first();
             </a>
             <ul class="dropdown-menu">
               <!-- Menu Body -->
-              <li><a href="{{url('/admin/profile')}}" title="Profile">Profile</a></li>
+              <li><a href="{{url('/admin/profile')}}" title="Profile">Profil</a></li>
               <li>
                 <a href="{{ route('logout') }}" title="Logout"
                     onclick="event.preventDefault();
@@ -102,21 +102,21 @@ $setting = App\Setting::first();
         <li class="header">Main Sections</li>
         @if ($auth->role == 'A')
           <!-- Optionally, you can add icons to the links -->
-          <li class="{{$dash}}"><a href="{{url('/admin')}}" title="Dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-          <li class="{{$users}}"><a href="{{url('/admin/users')}}" title="Students"><i class="fa fa-users"></i> <span>Students</span></a></li>
+          <li class="{{$dash}}"><a href="{{url('/admin')}}" title="Dashboard"><i class="fa fa-dashboard"></i> <span>{{__('message.Dashboard')}}</span></a></li>
+          <li class="{{$users}}"><a href="{{url('/admin/users')}}" title="Students"><i class="fa fa-users"></i> <span>{{__('message.Students')}}</span></a></li>
           <li class="{{$quiz}}"><a href="{{url('admin/topics')}}" title="Quiz"><i class="fa fa-gears"></i> <span>Quiz</span></a></li>          
-          <li class="{{$questions}}"><a href="{{url('admin/questions')}}" title="Questions"><i class="fa fa-question-circle-o"></i> <span>Questions</span></a></li>          
-          <li class="{{$all_re}}"><a href="{{url('/admin/all_reports')}}" title="Student Report"><i class="fa fa-file-text-o"></i> <span>Student Report</span></a></li>
-          <li class="{{$top_re}}"><a href="{{url('/admin/top_report')}}" title="Top Student Report"><i class="fa fa-user"></i> <span>Top Student Report</span></a></li>
+          <li class="{{$questions}}"><a href="{{url('admin/questions')}}" title="Questions"><i class="fa fa-question-circle-o"></i> <span>{{__('message.Questions')}}</span></a></li>          
+          <li class="{{$all_re}}"><a href="{{url('/admin/all_reports')}}" title="Student Report"><i class="fa fa-file-text-o"></i> <span>{{__('message.Student Report')}}</span></a></li>
+          <li class="{{$top_re}}"><a href="{{url('/admin/top_report')}}" title="Top Student Report"><i class="fa fa-user"></i> <span>{{__('message.Top Student Report')}}</span></a></li>
 
           
            
-          <li class="{{$sett}}"><a href="{{url('/admin/settings')}}" title="Settings"><i class="fa fa-gear"></i> <span>Settings</span></a></li>
+          <li class="{{$sett}}"><a href="{{url('/admin/settings')}}" title="Settings"><i class="fa fa-gear"></i> <span>{{__('message.Settings')}}</span></a></li>
           
 
           <li class="treeview {{ Nav::isRoute('pages.index') }} {{ Nav::isRoute('pages.add') }} {{ Nav::isRoute('pages.edit') }} {{ Nav::isRoute('faq.index') }} {{ Nav::isRoute('faq.add') }} {{ Nav::isRoute('faq.edit') }} {{ Nav::isRoute('copyright.index') }} {{ Nav::isRoute('set.facebook') }} {{ Nav::isRoute('customstyle') }} {{ Nav::isRoute('mail.getset') }} {{ Nav::isRoute('socialicons.index')}}">
             <a href="#">
-              <i class="fa fa-user"></i> <span>More settings</span>
+              <i class="fa fa-user"></i> <span>{{__('message.More settings')}}</span>
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
@@ -130,15 +130,15 @@ $setting = App\Setting::first();
                 <li class="{{ Nav::isRoute('copyright.index') }}"><a href="{{route('copyright.index')}}"><i class="fa fa-circle-o"></i>Copyright</a>
                </li>
 
-                <li class="{{ Nav::isRoute('set.facebook') }}"><a href="{{route('set.facebook')}}"><i class="fa fa-circle-o"></i>Social Login Setting</a>
+                <li class="{{ Nav::isRoute('set.facebook') }}"><a href="{{route('set.facebook')}}"><i class="fa fa-circle-o"></i>{{__('message.Social Login Setting')}}</a>
                </li>
 
-               <li class="{{ Nav::isRoute('socialicons.index')}}"><a href="{{route('socialicons.index')}}"><i class="fa fa-circle-o"></i>Social Icon</a>
+               <li class="{{ Nav::isRoute('socialicons.index')}}"><a href="{{route('socialicons.index')}}"><i class="fa fa-circle-o"></i>{{__('message.Social Icon')}}</a>
                </li>
-                <li class="{{ Nav::isRoute('mail.getset') }}"><a href="{{route('mail.getset')}}"><i class="fa fa-circle-o"></i>Mail Setting</a>
+                <li class="{{ Nav::isRoute('mail.getset') }}"><a href="{{route('mail.getset')}}"><i class="fa fa-circle-o"></i>{{__('message.Mail Setting')}}</a>
                </li>
                </li>
-                <li class="{{ Nav::isRoute('customstyle') }}"><a href="{{route('customstyle')}}"><i class="fa fa-circle-o"></i>Custom Style Settings</a>
+                <li class="{{ Nav::isRoute('customstyle') }}"><a href="{{route('customstyle')}}"><i class="fa fa-circle-o"></i>{{__('message.Custom Style Settings')}}</a>
                </li>
 
             </ul>
@@ -146,12 +146,12 @@ $setting = App\Setting::first();
 
           </li>
 
-          <li class="{{ Nav::isRoute('admin.payment') }}"><a href="{{route('admin.payment')}} " title="Payment History"><i class="fa fa-money"></i> <span>Payment History</span></a></li>
+          <li class="{{ Nav::isRoute('admin.payment') }}"><a href="{{route('admin.payment')}} " title="Payment History"><i class="fa fa-money"></i> <span>Historique de paiement</span></a></li>
 
         @elseif ($auth->role == 'S')
-          <li><a href="{{url('/admin/my_reports')}}" title="My Reports"><i class="fa fa-file-text-o"></i> <span>My Reports</span></a></li>
+          <li><a href="{{url('/admin/my_reports')}}" title="My Reports"><i class="fa fa-file-text-o"></i> <span>Mes Rapports</span></a></li>
 
-          <li><a href="{{url('/admin/profile')}}" title="My Profile"><i class="fa fa-file-text-o"></i> <span>My Profile</span></a></li>
+          <li><a href="{{url('/admin/profile')}}" title="My Profile"><i class="fa fa-file-text-o"></i> <span>Mon Profil</span></a></li>
 
            {{-- <li><a href="{{url('/admin/payment')}}" title="Payment History"><i class="fa fa-money"></i> <span>Payment History</span></a></li> --}}
         @endif

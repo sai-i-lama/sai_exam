@@ -20,7 +20,7 @@
       <div class="login-page">
         <div class="logo">
           @if ($setting)
-            <a href="{{url('/')}}" title="{{$setting->welcome_txt}}"><img src="{{asset('/images/logo/'.$setting->logo)}}" class="login-logo img-responsive" alt="{{$setting->welcome_txt}}"></a>
+            <a href="{{url('/')}}" title="{{$setting->welcome_txt}}"><img src="{{asset('/images/logo/background.png')}}" class="login-logo img-responsive" alt="{{$setting->welcome_txt}}"></a>
           @endif
         </div>
         <h4 class="user-register-heading text-center">Login</h4>
@@ -61,7 +61,7 @@
         <form class="form login-form" method="POST" action="{{ route('login') }}">
           {{ csrf_field() }}
           <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Enter Your Email" required autofocus>
+            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Entrez votre Email" required autofocus>
             @if ($errors->has('email'))
               <span class="help-block">
                 <strong>{{ $errors->first('email') }}</strong>
@@ -69,7 +69,7 @@
             @endif
           </div>
           <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-            <input id="password" type="password" class="form-control" name="password" placeholder="Enter Password" required>
+            <input id="password" type="password" class="form-control" name="password" placeholder="Entrez votre mot de passe" required>
             @if ($errors->has('password'))
               <span class="help-block">
                 <strong>{{ $errors->first('password') }}</strong>
@@ -81,17 +81,17 @@
               <label>
                 <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
               </label>
-               Remember Me
+               {{__('message.Remember Me')}}
             </div>
           </div>
           <div class="form-group">
             <button type="submit" class="btn btn-wave">
                 Login
             </button>
-            <p class="messege text-center">Not registered? <a href="{{url('/register')}}" title="Create An Account">Create an account</a></p>
+            <p class="messege text-center">{{__('message.Not registered?')}} <a href="{{url('/register')}}" title="Create An Account">{{__('message.Create an account')}} </a></p>
           </div>
           <div class="form-group text-center">
-            <a href="{{url('/password/reset')}}" title="Forgot Password">Forgot Password?</a>
+            <a href="{{url('/password/reset')}}" title="Forgot Password">{{__('message.Forgot Password?')}}</a>
           </div>
         </form>
       </div>

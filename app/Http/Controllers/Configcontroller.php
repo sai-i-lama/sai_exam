@@ -45,7 +45,7 @@ class Configcontroller extends Controller
         //return $config = DB::table('configs')->get();
         // $config = Config::first();
 		if($env_update) {
-            return back()->with('updated', 'Mail settings has been saved');
+            return back()->with('updated', 'Les paramètres de messagerie ont été enregistrés');
         } else {
           return back()->with('deleted', 'Mail settings could not be saved');
         }

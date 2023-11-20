@@ -17,7 +17,7 @@
                 <!-- Authentication Links -->
                 @guest
                     <li><a href="{{ route('login') }}" title="Login">Login</a></li>
-                    <li><a href="{{ route('register') }}" title="Register">Register</a></li>
+                    <li><a href="{{ route('register') }}" title="Register">{{__('message.Register')}}</a></li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
